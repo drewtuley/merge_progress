@@ -1,0 +1,24 @@
+36314|AUTO: 30436 - Enhanced ASI - MYR Patient Access Prevented with UBRN for a 'Cancelled' or 'End Triage' ARBL'd Booking Deferral|3
+33964|Development of ERSSUP-30436: MYR Patient Access Prevented with UBRN for a 'Cancelled' or 'End Triage' ARBL'd Booking Deferral|3
+36281|Enhanced ASI RtR - invalidShortlistedStateCombination error when recording RtR or ARBL|4
+36710|Automation of 30450 Enhanced ASI - Professional (Provider/Outbound) Performs Update/Book - Request|4
+35438|Development of 30454: Enhanced ASI - Professional (Provider/Outbound) Cancels Appointment Request|4
+32651|Development of ERSSUP-30952/ERSSUP-31040: e-RS Performs Booking Deferral Worklist Verification|4
+37026|Enhanced ASI - Professional (Provider/Outbound) Performs Update/Book - Request - Update/Book option then not given|4
+36663|Automation of 30431:Enhanced ASI - Professional (Referrer/Outbound) Adds Referral Letter for an Onward Request|4
+36675|Automation of 31939: Professional Prints Appointment Request Letter for ARBL'd Booking Deferral|4
+33962|Development of ERSSUP-31939: Professional Prints Appointment Request Letter for ARBL'd Booking Deferral|4
+35259|Ghost relationship not correctly managed when recording ARBL deferral outcome|4
+35036|Development of 30427:Enhanced ASI - Professional (Referrer/Outbound) Performs Update/Book - Booking Deferral|4
+36685|Automated Test of ERSSUP-36294 - Enhanced ASI - Seamless Login with a Resolved Booking Deferral Returned to Referrer|1
+37088|Automation of 30452 - Enhanced ASI - Professional (Provider/Outbound) Performs Update/Book - Booking Deferral|1
+36673|Automation of 30432:Enhanced ASI - Professional (Referrer/Outbound) Accesses 'Accept and Refer/Book Later' Appointment Request via Integrated Clinical System|1
+36717|Automation of 30430 - Enhanced ASI - Professional (Referrer/Outbound) Modifies Referral Letter for an Initial or Onward Request|3
+36693|Automation of 30457 - Enhanced ASI - Professional (Provider/Outbound) Performs Update/Book - IBS Appointment Booking|1
+36655|Automation for 31677 - Enhanced ASI - Booking Managers are unable to maintain Request if there is an ARBL Booking Deferral|3
+36648|Development of 30430 - Enhanced ASI - Professional (Referrer/Outbound) Modifies Referral Letter for an Initial or Onward Request|3
+36625|Automated Testing of 'ERSSUP-27865 Enhanced ASI - Professional Views Returned Onward Booking Deferral on the Patient Enquiry'|1
+36110|ASI RtR - Details displayed on UBRN reveal and PAL for booking deferrals|3
+34466|Automation for ERSSUP-30169: Enhanced ASI - Professional (Referrer/Outbound) Locates 'Accept and Refer/Book Later' Appointment Request on 2WW Enquiry|3
+35879|Development of 30453 - Enhanced ASI - Professional (Provider/Outbound) Performs Update/Book - Triage Deferral|1
+37123|Automation of 30455 - Enhanced ASI - Professional (Provider/Outbound) Adds/Modifies Referral Letter for an Onward Request|1
