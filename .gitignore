@@ -1,2 +1,5 @@
 progress.txt
 update.txt
+*pyc
+log/
+data/

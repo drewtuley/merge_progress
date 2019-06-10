@@ -62,6 +62,8 @@ def do_progress():
                     updated = '{u}'.format(u=fields[1])
                 elif fields[0] == 'rebased':
                     rebased = '{u}'.format(u=fields[1])
+                elif fields[0] == 'head_sha':
+                    head_sha = '{u}'.format(u=fields[1])
 
     table = '<table width="100%">'
     for state in jira_map.keys():
@@ -70,7 +72,7 @@ def do_progress():
     table += '</table>'
 
     return render_template('merge_progress.html', data=Markup(table), date=str(datetime.now()), updated=Markup(updated),
-                           rebased=Markup(rebased))
+                           rebased=Markup(rebased), head_sha=Markup(head_sha))
 
 
 if __name__ == '__main__':

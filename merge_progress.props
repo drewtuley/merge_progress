@@ -1,0 +1,12 @@
+# merge_progress props file
+
+[directories]
+data=data
+log=log
+pid=run
+
+[database]
+dbname=merge_progress.db
+
+[logging]
+logname=merge_progress.log
