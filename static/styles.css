@@ -1,0 +1,90 @@
+body {
+    font-family: arial;
+    color: white;
+    background-color: black;
+}
+
+h1 {
+    font-family: arial;
+    color: white;
+}
+
+td {
+    font-family: arial;
+    font-size: 22px;
+}
+a {
+    color: black;
+}
+
+input {
+    font-family: arial;
+    font-size: 22px;
+}
+
+.pending {
+    height: 36px;
+    background-color: yellow;
+    color: black;
+}
+
+.testing {
+    height: 36px;
+    background-color: orange;
+    color: black;
+}
+
+.merged {
+    height: 36px;
+    background-color: green;
+    color: black;
+}
+
+.archived {
+    height: 36px;
+    background-color: orangered;
+    color: black;
+}
+
+.jira_state {
+    text-align: center;
+    width: 12%;
+}
+
+.jira_id {
+    width: 5%;
+    text-align: center
+}
+
+.jira_title {
+    width: 83%;
+}
+
+.progress_row {
+    height: 36px;
+}
+
+.progress_header {
+    text-align: center
+}
+
+.progress_status {
+    font-size: 32px;
+    background-color: black;
+    text-align: center;
+    width: 33%
+}
+
+table.edit_table {
+    background-color: aqua;
+    border-spacing: 4px;
+    color: green;
+}
+
+tr.edit_row {
+    background-color: blanchedalmond;
+}
+
+td.mgmt {
+    background-color: blanchedalmond;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Title</title>
+</head>
+<body>
+<h2>Add New JIRA</h2>
+<form action="/add/" method="post">
+    <table class="edit_table">
+        <tr class="edit_row">
+            <td>JIRA</td>
+            <td><input type="text" name="jid" value="" ></td>
+        </tr>
+        <tr class="edit_row">
+            <td>Title</td>
+            <td><input type="text" name="title" value=""></td>
+        </tr>
+        <tr class="edit_row">
+            <td>State</td>
+            <td><select name="state">
+                    {{state_options}}
+            </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value ="Add">
+</form>
+</body>
+</html>
