@@ -24,13 +24,19 @@ input {
 
 .pending {
     height: 36px;
-    background-color: yellow;
+    background-color: yellowgreen;
+    color: black;
+}
+
+.pending_dev {
+    height: 36px;
+    background-color:yellow;
     color: black;
 }
 
 .testing {
     height: 36px;
-    background-color: orange;
+    background-color: orangered;
     color: black;
 }
 
@@ -42,7 +48,7 @@ input {
 
 .archived {
     height: 36px;
-    background-color: orangered;
+    background-color: firebrick;
     color: black;
 }
 

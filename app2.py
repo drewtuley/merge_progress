@@ -30,7 +30,7 @@ class App(Flask):
 
 app = App(__name__)
 
-state_class_map = {1: 'pending', 2: 'pending', 3: 'testing', 4: 'merged', 10: 'archived'}
+state_class_map = {1: 'pending_dev', 2: 'pending', 3: 'testing', 4: 'merged', 10: 'archived'}
 
 
 def get_state_mappings(session):
@@ -206,6 +206,18 @@ def do_add_jira():
     app.logger.info('Adding new JIRA {}'.format(jira))
     session.add(jira)
     session.commit()
+
+    return redirect(url_for('do_mgmt'))
+
+
+@app.route('/purge/')
+def do_purge():
+    session = app.merge_progress.get_db_session()
+    archive_state = session.query(StateMap).filter_by(description='Archived').first()
+    if archive_state is not None:
+        app.logger.info('Deleting Archived JIRAs')
+        session.query(MergeJira).filter_by(state=archive_state.state).delete(synchronize_session='evaluate')
+        session.commit()
 
     return redirect(url_for('do_mgmt'))
 
