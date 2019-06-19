@@ -52,8 +52,8 @@ def favicon():
 
 
 def markup_progress_row(jira, state_mapping):
-    return render_template('progress_row.html', row_cls=get_state_class(jira.state), id=jira.jid, title=jira.title,
-                           mapped_state=state_mapping[jira.state])
+    return render_template('progress_row.html', row_cls=get_state_class(jira.state),
+                           mapped_state=state_mapping[jira.state], **jira.get_properties())
 
 
 @app.route('/progress/', methods=['GET'])
@@ -62,9 +62,10 @@ def show_progress():
 
     state_mapping = get_state_mappings(session)
 
-    jira_list = session.query(MergeJira).order_by('state').order_by('jid').limit(25)
+    jira_list = session.query(MergeJira).order_by('state').order_by('jid').limit(30)
 
     table = '<table width="100%">'
+    table += render_template('table_header.html')
     for jira in jira_list:
         if jira.state < 10:
             table += markup_progress_row(jira, state_mapping)
@@ -81,7 +82,7 @@ def show_progress():
 
 def markup_list_row(jira, state_mapping):
     return render_template('list_row.html', row_cls=get_state_class(jira.state),
-                           mapped_state=state_mapping[jira.state], **jira.get_props())
+                           mapped_state=state_mapping[jira.state], **jira.get_properties())
 
 
 @app.route('/mgmt/', methods=['GET'])
@@ -97,6 +98,7 @@ def show_list():
     jira_list = session.query(MergeJira).order_by('state').order_by('jid')
 
     table = '<table width="100%">'
+    table += render_template('table_header.html')
     for jira in jira_list:
         table += markup_list_row(jira, state_mapping)
     table += '</table>'
@@ -129,17 +131,21 @@ def do_edit():
     state_mapping = get_state_mappings(session)
 
     return render_template('edit_page.html', state_options=Markup(render_state_options(state_mapping, jira.state)),
-                           **jira.get_props())
+                           **jira.get_properties())
 
 
 @app.route('/update/', methods=['POST'])
 def do_update():
     jid = request.values.get('jid')
     state = request.values.get('state')
+    dependent_jira = request.values.get('dependent_jira')
+    comment = request.values.get('comment')
 
     session = app.merge_progress.get_db_session()
-    app.logger.info('Update Jira {j} state to {s}'.format(j=jid, s=state))
-    session.query(MergeJira).filter_by(jid=jid).update({'state': state}, synchronize_session='evaluate')
+    app.logger.info('Update Jira {j} state to {s}, dependent_jira to {dependent_jira}, comment to {comment}'.format(j=jid, s=state,
+                                                                                              dependent_jira=dependent_jira, comment=comment))
+    session.query(MergeJira).filter_by(jid=jid).update({'state': state, 'dependent_jira': dependent_jira, 'comment': comment},
+                                                       synchronize_session='evaluate')
     session.commit()
 
     return redirect(url_for('show_list'))
@@ -196,6 +202,7 @@ def do_add_jira():
     jira.jid = request.values.get('jid')
     jira.title = request.values.get('title')
     jira.state = request.values.get('state')
+    jira.dependent_jira = request.values.get('dependent_jira')
 
     existing = session.query(MergeJira).filter_by(jid=jira.jid).first()
     if existing is not None:

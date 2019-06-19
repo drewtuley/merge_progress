@@ -13,6 +13,13 @@ td {
     font-family: arial;
     font-size: 22px;
 }
+
+thead {
+    font-family: arial;
+    font-size: 22px;
+    background-color: cornflowerblue;
+}
+
 a {
     color: black;
 }
@@ -54,7 +61,34 @@ input {
 
 .jira_state {
     text-align: center;
-    width: 12%;
+    width: 16%;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .jira_id {
@@ -63,7 +97,7 @@ input {
 }
 
 .jira_title {
-    width: 83%;
+    width: 74%;
 }
 
 .progress_row {

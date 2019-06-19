@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
 import ConfigParser
 from datetime import datetime
 import json
@@ -13,21 +12,38 @@ import logging.handlers
 Base = declarative_base()
 
 
+def convert_to_str(var):
+    if var is None:
+        return ''
+    else:
+        return str(var)
+
+
 class MergeJira(Base):
     __tablename__ = 'merge_jira'
 
     jid = Column(Integer, primary_key=True)
     title = Column(String)
     state = Column(Integer)
+    dependent_jira = Column(Integer)
+    comment = Column(String)
 
     def __repr__(self):
-        return 'id: {id} Title: {title}: state: {state}'.format(id=self.jid, title=self.title, state=self.state)
+        return 'id: {id} Title: {title}: state: {state} dependent_jira: {dj} comment: {cm}'.format(id=self.jid,
+                                                                                                   title=self.title,
+                                                                                                   state=self.state,
+                                                                                                   dj=self.dependent_jira,
+                                                                                                   cm=self.comment)
 
-    def get_props(self):
+    def get_properties(self):
+        dependent_jira = convert_to_str(self.dependent_jira)
+        comment = convert_to_str(self.comment)
         return {
             'jid': self.jid,
             'title': self.title,
-            'state': self.state
+            'state': self.state,
+            'dependent_jira': dependent_jira,
+            'comment': comment
         }
 
 
