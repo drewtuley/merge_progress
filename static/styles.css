@@ -72,7 +72,7 @@ input {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 240px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -84,7 +84,7 @@ input {
   z-index: 1;
   bottom: 100%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -120px;
 }
 
 .tooltip:hover .tooltiptext {
@@ -109,10 +109,10 @@ input {
 }
 
 .progress_status {
-    font-size: 32px;
+    font-size: 28px;
     background-color: black;
     text-align: center;
-    width: 33%
+    width: 25%
 }
 
 table.edit_table {
